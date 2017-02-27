@@ -115,9 +115,14 @@ public class Program
 	{
 		Mock interfaceMock = new Mock();
 
-		interfaceMock.DynamicInterface.doSomething = new Action(() => { Console.WriteLine("doSomething() was called"); });
-		interfaceMock.DynamicInterface.getValue = new Func<string>(() => { Console.WriteLine("getValue() was called"); return "hi!"; });
-		interfaceMock.DynamicInterface.getValueWithParams = new Func<string, int, string>((string param1, int param2) => { Console.WriteLine($"getValueWithParams() was called, param1: {param1}, param2: {param2}"); return "Success!"; });
+		interfaceMock.DynamicInterface.doSomething = new Action(() =>
+			{ Console.WriteLine("doSomething() was called"); });
+		
+		interfaceMock.DynamicInterface.getValue = new Func<string>(() =>
+			{ Console.WriteLine("getValue() was called"); return "hi!"; });
+		
+		interfaceMock.DynamicInterface.getValueWithParams = new Func<string, int, string>((string param1, int param2) =>
+			{ Console.WriteLine($"getValueWithParams() was called, param1: {param1}, param2: {param2}"); return "Success!"; });
 		
 		var complexSystem = new ComplexSystem(interfaceMock);
 		
